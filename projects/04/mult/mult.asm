@@ -16,16 +16,16 @@
 (LOOP)
     @num // A = num
     D=M // D=M[num]
-    @END
-    D; JEQ // if D = 0 then 
-    @R0
-    D=M
-    @R2
-    M=M+D
-    @num
-    M=M-1
-    @LOOP
-    0; JMP
+    @END // A = END
+    D; JEQ // if D = 0 then END へ jump else 続行
+    @R0 // A  = R0
+    D=M // D = M[R0]
+    @R2 // A = R2
+    M=M+D // M[R2] = M[R2] + D
+    @num // A = num
+    M=M-1 // M[num] = M[num] - 1
+    @LOOP // A = LOOP
+    0; JMP // LOOPへjump
 (END)
-    @END
-    0; JMP
+    @END // A = END
+    0; JMP // ENDへjump
